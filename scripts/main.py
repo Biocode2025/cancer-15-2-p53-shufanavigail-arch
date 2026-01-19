@@ -65,6 +65,7 @@ def Delete_DNA(seq):
 RNA_codon_table = {}
 codon_file = open('data/codon_AA.txt', 'r')
 seq_file = open('data/p53_sequence.fa', 'r')
+results_file = open('results/mutated_p53.fasta', 'w')
 OG_dna = ''
 Read_dict(codon_file)   
 
