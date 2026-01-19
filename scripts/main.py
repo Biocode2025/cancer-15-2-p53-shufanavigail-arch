@@ -94,3 +94,7 @@ remain = len(mutated_dna) % 3
 mutated_dna = mutated_dna[0:len(mutated_dna) - remain]
 mutated_rna = DNA_RNA_Cod(mutated_dna)
 mutated_prot = RNA_prot(mutated_rna)
+
+results_file.write('The original protein sequence: %s\n' % OG_prot)
+results_file.write('The mutated protein sequence: %s\n' % mutated_prot)
+
