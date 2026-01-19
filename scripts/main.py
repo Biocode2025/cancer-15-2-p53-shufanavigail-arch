@@ -7,3 +7,4 @@ def DNA_RNA_Cod(seq): #פונקציה שמקבלת רצף מקודד והופכ�
     else:
       RNA_seq += nuc  
   return RNA_seq
+
