@@ -73,9 +73,23 @@ for line in seq_file:
     line = line.rstrip('\n')
     OG_dna += line
 
-remain = len(OG_dna) % 3 # מחזיר את השארית אם הרצף לא מתחלק בשלוש כדי להוות את הנוקלאוטידים שנשארים 
+remain = len(OG_dna) % 3 
 OG_dna = OG_dna[0:len(OG_dna) - remain]
 OG_rna = DNA_RNA_Cod(OG_dna)
 OG_prot = RNA_prot(OG_rna)
 
 mutated_dna = OG_dna
+
+for i in range(0, 3): #יוצר מוטציה נקודתית 
+  rand_mutation = random.randrange(0, 3)
+  if rand_mutation == 0:
+    mutated_dna = Mutate_DNA(mutated_dna)
+  elif rand_mutation == 1:
+    mutated_dna = Insert_DNA(mutated_dna)
+  else:
+    mutated_dna = Delete_DNA(mutated_dna)
+
+remain = len(mutated_dna) % 3
+mutated_dna = mutated_dna[0:len(mutated_dna) - remain]
+mutated_rna = DNA_RNA_Cod(mutated_dna)
+mutated_prot = RNA_prot(mutated_rna)
