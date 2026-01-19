@@ -54,6 +54,14 @@ def Insert_DNA(seq):
     new_seq = seq_1 + new_nuc + seq_2
     return new_seq
 
+def Delete_DNA(seq):
+    seq = seq.upper()
+    ran_place = random.randrange(0, len(seq))  # הגרלת מקום רנדומלי
+    seq_1 = seq[0: ran_place]
+    seq_2 = seq[ran_place + 1:]
+    new_seq = seq_1 + seq_2
+    return new_seq
+
 RNA_codon_table = {}
 codon_file = open('data/codon_AA.txt', 'r')
 seq_file = open('data/p53_sequence.fa', 'r')
