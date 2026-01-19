@@ -65,3 +65,17 @@ def Delete_DNA(seq):
 RNA_codon_table = {}
 codon_file = open('data/codon_AA.txt', 'r')
 seq_file = open('data/p53_sequence.fa', 'r')
+OG_dna = ''
+Read_dict(codon_file)   
+
+for line in seq_file:
+  if line[0] != ">":
+    line = line.rstrip('\n')
+    OG_dna += line
+
+remain = len(OG_dna) % 3 # מחזיר את השארית אם הרצף לא מתחלק בשלוש כדי להוות את הנוקלאוטידים שנשארים 
+OG_dna = OG_dna[0:len(OG_dna) - remain]
+OG_rna = DNA_RNA_Cod(OG_dna)
+OG_prot = RNA_prot(OG_rna)
+
+mutated_dna = OG_dna
