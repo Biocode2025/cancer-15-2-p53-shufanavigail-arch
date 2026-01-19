@@ -98,3 +98,6 @@ mutated_prot = RNA_prot(mutated_rna)
 results_file.write('The original protein sequence: %s\n' % OG_prot)
 results_file.write('The mutated protein sequence: %s\n' % mutated_prot)
 
+codon_file.close()
+seq_file.close()
+results_file.close()
