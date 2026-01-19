@@ -1,3 +1,5 @@
+import random
+
 def DNA_RNA_Cod(seq): #פונקציה שמקבלת רצף מקודד והופכת אותו לרנא
   RNA_seq = ''
   seq = seq.upper()
@@ -38,6 +40,19 @@ def Mutate_DNA(seq): #פונקציה שמקבלת רצף דנא ומחליפה �
   seq_2 = seq[ran_place + 1 :] 
   new_seq = seq_1 + new_nuc + seq_2 #יצירת הרצף עם הנוקלאוטיד החדש
   return new_seq
+
+def Insert_DNA(seq):
+    base_list = ['A', 'C', 'G', 'T']
+    seq = seq.upper()
+    ran_place = random.randrange(0, len(seq))  # הגרלת מקום רנדומלי
+    ran_nuc = seq[ran_place] #הנוקלאוטיד במקום הרנדומלי שנבחר
+    ran_base = random.randrange(0, len(base_list))
+    new_nuc = base_list[ran_base]
+
+    seq_1 = seq[0: ran_place]
+    seq_2 = seq[ran_place :]
+    new_seq = seq_1 + new_nuc + seq_2
+    return new_seq
 
 RNA_codon_table = {}
 codon_file = open('data/codon_AA.txt', 'r')
